@@ -12,7 +12,19 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Route for Backend
+Route::group(['prefix' => '/backend'], function () {
+    Route::get('/', [
+        'as'    => 'backend.index',
+        'uses'  => 'Backend\AppController@index'
+    ]);
+    
+    Route::get('/produtos', [
+        'as'    => 'backend.produtos',
+        'uses'  => 'Backend\ProdutosController@index'
+    ]);
+});
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('backend.app');
 });
