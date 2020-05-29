@@ -14,18 +14,6 @@
 				@include('backend.partials.mainheader')
 				
 	<!--inner block start here-->
-	<div class="content-wrapper">
-		<section class="content-header">
-		<h1>
-			@yield('title')
-		</h1>
-		<ol class="breadcrumb">
-			@section('breadcrumb')
-			<li><a href="#"><i class="fa fa-home"></i>Home</a></li>
-			@show
-		</ol>
-		</section>
-	</div>
 	@yield('content')
 
 	<!--inner block end here-->

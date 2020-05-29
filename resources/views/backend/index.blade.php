@@ -4,6 +4,7 @@
 
 <div class="inner-block">
    <!--market updates updates-->
+   <h2>Titulo de Teste</h2>
    <div class="market-updates">
       <div class="col-md-4 market-update-gd">
          <div class="market-update-block clr-block-1">

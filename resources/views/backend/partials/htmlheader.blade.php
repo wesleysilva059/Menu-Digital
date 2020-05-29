@@ -7,10 +7,16 @@
    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
    <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+
+   <link rel="stylesheet" href="/datatables/dataTables.bootstrap.css">
+
    <!-- Custom Theme files -->
    <link href="/css/style.css" rel="stylesheet" type="text/css" media="all"/>
    <!--js-->
-   <script src="/js/jquery-2.1.1.min.js"></script> 
+   <script src="/js/jquery-2.2.3.min.js"></script> 
+
+   <script src="/datatables/jquery.dataTables.min.js"></script>
+   <script src="/datatables/dataTables.bootstrap.min.js"></script>
    <!--icons-css-->
    <link href="/css/font-awesome.css" rel="stylesheet"> 
    <!--Google Fonts-->
