@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Backend;
+namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Grupo;
 use Illuminate\Http\Request;
-use App\Models\Produto;
-class ProdutosController extends Controller
+
+class GruposController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,20 +15,17 @@ class ProdutosController extends Controller
      */
     public function index()
     {
-        return view('backend.produtos.index');
+        return view('backend.grupos.index');
     }
 
-    public function listDataProdutos()
+    public function listDataGrupos()
     {
-        $produtos = Produto::all();
+        $grupos = Grupo::all();
         $data = array();
-        foreach($produtos as $p){
+        foreach($grupos as $p){
             $row = array();
-            $row[] = $p->ativo;
             $row[] = $p->id;
-            $row[] = $p->nome;
-            $row[] = $p->grupo_id;
-            $row[] = $p->valor;
+            $row[] = $p->descricao;
             $row[] = '<div class="btn-group">
             <a onclick="editFormprodutos('.$p->id.')" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></a>
             <a onclick="deleteDataprodutos('.$p->id.')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a></div>';
@@ -45,7 +43,7 @@ class ProdutosController extends Controller
      */
     public function create()
     {
-        return view('backend.produtos.create');
+        return view('backend.grupos.create');
     }
 
     /**
@@ -56,14 +54,11 @@ class ProdutosController extends Controller
      */
     public function store(Request $request)
     {
-        $produto = new Produto;
-        $produto->nome = $request['nome'];
-        $produto->grupo_id = $request['grupo_id'];
-        $produto->valor = $request['valor'];
-        $produto->status = $request['status'];
+        $produto = new Grupo();
+        $produto->descricao = $request['descricao'];
         $produto->save();
 
-        return redirect()->route('backend.produtos')->with('success', 'Produto cadastrado com Sucesso!');
+        return redirect()->route('backend.grupos')->with('success', 'Grupo cadastrado com Sucesso!');
     }
 
     /**

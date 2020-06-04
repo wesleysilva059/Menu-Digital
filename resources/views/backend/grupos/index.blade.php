@@ -4,25 +4,22 @@
 <div class="inner-block">
    <div class="inbox">
       <div class="col-md-9">
-         <h2>Lista de Produtos</h2>
+         <h2>Lista de Grupos</h2>
       </div>
       <div class="col-md-3">
-      <a href="{{route('backend.produtos.create')}}" class="btn btn-success"><i class="fa fa-plus-circle"></i> Novo Produto</a>
+      <a href="{{route('backend.grupos.create')}}" class="btn btn-success"><i class="fa fa-plus-circle"></i> Novo Grupo</a>
       </div>
 
       <div class="box">
          <div class="box-body">
    
-            <form method="post" id="form-produto">
+            <form method="post" id="form-grupo">
             {{ csrf_field() }}
             <table class="table table-striped" id="example">
                <thead>
                   <tr>
-                  <th width="60">Status</th>
                   <th>Código</th>
                   <th>Nome</th>
-                  <th>Grupo</th>
-                  <th>Valor</th>
                   <th width="100">Ações</th>
                   </tr>
                </thead>
@@ -54,7 +51,7 @@
           "processing" : true,
           "serverside" : true,
           "ajax" : {
-            "url" : "{{ route('backend.produtos.listdata') }}",
+            "url" : "{{ route('backend.grupos.listdata') }}",
             "type" : "GET"
          },
           'columnDefs': [{

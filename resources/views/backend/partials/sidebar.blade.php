@@ -7,8 +7,13 @@
       <li id="menu-home" ><a href="index.html"><i class="fa fa-tachometer"></i><span>Dashboard</span></a></li>
       <li><a href="{{route('backend.produtos')}}"><i class="fa fa-cogs"></i><span>Produtos</span><span class="fa fa-angle-right" style="float: right"></span></a>
         <ul>
-          <li><a href="grids.html">Cadastro</a></li>
+        <li><a href="{{route('backend.produtos.create')}}">Cadastro</a></li>
           <li><a href="portlet.html">Importação</a></li>		            
+        </ul>
+      </li>
+      <li><a href="{{route('backend.grupos')}}"><i class="fa fa-cogs"></i><span>Grupos</span><span class="fa fa-angle-right" style="float: right"></span></a>
+        <ul>
+        <li><a href="{{route('backend.grupos.create')}}">Cadastro</a></li>	            
         </ul>
       </li>
       <li id="menu-comunicacao" ><a href="#"><i class="fa fa-book nav_icon"></i><span>Promoções</span><span class="fa fa-angle-right" style="float: right"></span></a>
