@@ -12,6 +12,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Route for Frontend
+Route::get('/', [
+    'as' => 'index',
+    'uses' => 'Frontend\HomeController@index'
+]);
+
 // Route for Backend
 Route::group(['prefix' => '/backend'], function () {
     Route::get('/', [
@@ -56,6 +62,3 @@ Route::group(['prefix' => '/backend'], function () {
     ]);
 });
 
-Route::get('/', function () {
-    return view('backend.app');
-});
