@@ -33,55 +33,70 @@
                 </ol>-->
 
           <!-- Wrapper for slides -->
-          <div class="carousel-inner full" role="listbox">
+         <div class="carousel-inner full" role="listbox">
             <div class="item active">
-              <div class="col-md-4 promocao">
-              </div>
-              <div class="col-md-8 produtos">
-                 <div class="logo-principal">
-                  <figure>
-                     <img src="/images/logo.png" class="img-responsive center-block" alt="" srcset="">
-                  </figure>
-                 </div>
-                 <div class="titulo">
-                    <h1>Bovinos</h1>
-                 </div>
-                 @for ($i = 0; $i < 8; $i++)
-                 <div class="list-produtos">
-                  <div class="col-md-9">Picanha</div>
-                  <div class="col-md-3">R$ 29,90</div>
-               </div>    
-                 @endfor
-                 
-              </div>
-            </div>
-            <div class="item">
                <div class="col-md-4 promocao">
                </div>
                <div class="col-md-8 produtos">
-                <figure>
-                   <img src="/images/logo.png" class="logo" alt="" srcset="">
-                </figure>
+                  <div class="logo-principal"></div>
+                  <div class="titulo">
+                     <h1>Bovinos</h1>
+                  </div>
+                  @for ($i = 0; $i < 8; $i++)
+                     <div class="list-produtos">
+                        <div class="col-md-9 produto">Picanha</div>
+                        <div class="col-md-3 preco">R$ 39,90</div>
+                     </div>
+                  @endfor
                </div>
             </div>
             <div class="item">
                <div class="col-md-4 promocao">
                </div>
                <div class="col-md-8 produtos">
-                <figure>
-                   <img src="/images/logo.png" class="logo" alt="" srcset="">
-                </figure>
+                  <div class="logo-principal"></div>
+                  <div class="titulo">
+                     <h1>Bovinos</h1>
+                  </div>
+                  @for ($i = 0; $i < 8; $i++)
+                     <div class="list-produtos">
+                        <div class="col-md-9 produto">Acém</div>
+                        <div class="col-md-3 preco">R$ 29,90</div>
+                     </div>
+                  @endfor
                </div>
             </div>
             <div class="item">
                <div class="col-md-4 promocao">
                </div>
                <div class="col-md-8 produtos">
-                <figure>
-                   <img src="/images/logo.png" class="logo" alt="" srcset="">
-                </figure>
+                  <div class="logo-principal"></div>
+                  <div class="titulo">
+                     <h1>Suínos</h1>
+                  </div>
+                  @for ($i = 0; $i < 8; $i++)
+                     <div class="list-produtos">
+                        <div class="col-md-9 produto">Costelinha</div>
+                        <div class="col-md-3 preco">R$ 19,90</div>
+                     </div>
+                  @endfor
                </div>
-             </div>
+            </div>
+            <div class="item">
+               <div class="col-md-4 promocao">
+               </div>
+               <div class="col-md-8 produtos">
+                  <div class="logo-principal"></div>
+                  <div class="titulo">
+                     <h1>Aves</h1>
+                  </div>
+                  @for ($i = 0; $i < 8; $i++)
+                     <div class="list-produtos">
+                        <div class="col-md-9 produto">Frango</div>
+                        <div class="col-md-3 preco">R$ 15,90</div>
+                     </div>
+                  @endfor
+               </div>
           </div>
         </div>
       </div>
@@ -90,7 +105,7 @@
     <script type="text/javascript" src="/js/bootstrap.js"></script>
     <script type="text/javascript">
       $('.carousel').carousel({
-        interval: 300000
+        interval: 3000
       });
 
     </script>
