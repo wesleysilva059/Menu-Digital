@@ -1,0 +1,196 @@
+.row {
+   margin-right: 0;
+   margin-left: 0; 
+}
+
+html,
+body {
+   overflow-y: hidden;
+   overflow-x: hidden;
+   height: 100%;
+}
+
+* {
+   box-sizing: border-box;
+}
+/* HTML5 display-role reset for older browsers */
+
+article, aside,details,figcaption,figure,footer,header,hgroup,menu,nav,
+section {
+   display: block;
+}
+
+ol,
+ul {
+   list-style: none;
+}
+
+blockquote,
+q {
+   quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+   content: '';
+   content: none;
+}
+
+table {
+   border-collapse: collapse;
+   border-spacing: 0;
+}
+
+.full {
+   height: 100%;
+   background-image: url('/images/fundo-madeira.jpg'); 
+   background-size: 1920px 1080px;
+   width: 100%;
+}
+
+.produtos{
+   background-color: rgba(71, 71, 71, 0.9);
+   max-height: 1080px;
+   height: 100%;
+   margin: 0;
+   padding: 0;
+}
+
+.container-fluid {
+   padding-right: 0px;
+   padding-left: 0px;
+   margin-right: auto;
+   margin-left: auto;
+}
+
+
+/* comeco fade carousel */
+.item {
+   height: 100%;
+}
+
+.carousel-fade .carousel-inner .item {
+   opacity: 0;
+   transition-property: opacity;
+}
+
+.carousel-fade .carousel-inner .active {
+   opacity: 1;
+}
+
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+   left: 0;
+   opacity: 0;
+   z-index: 1;
+}
+
+.carousel-fade .carousel-inner .next.left,
+.carousel-fade .carousel-inner .prev.right {
+   opacity: 1;
+}
+
+.carousel-fade .carousel-control {
+   z-index: 2;
+}
+
+@media all and (transform-3d),
+(-webkit-transform-3d) {
+   .carousel-fade .carousel-inner > .item.next,
+   .carousel-fade .carousel-inner > .item.active.right {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+   }
+   .carousel-fade .carousel-inner > .item.prev,
+   .carousel-fade .carousel-inner > .item.active.left {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+   }
+   .carousel-fade .carousel-inner > .item.next.left,
+   .carousel-fade .carousel-inner > .item.prev.right,
+   .carousel-fade .carousel-inner > .item.active {
+      opacity: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+   }
+}
+/* fim fade carousel */
+
+.cor {
+   position: absolute;
+   background-color: rgba(255, 255, 255, 0.6);
+   z-index: 10;
+   left: 50%;
+   margin-left: -615px;
+   height: 70px;
+   top: 2%;
+}
+
+.nav-justified>li {
+   width: 200px;
+   padding: 5px;
+}
+
+.nav-justified {
+   margin-top: 13px;
+}
+
+.nav-pills>li>a {
+   color: #000;
+   border-radius: 0;
+   text-transform: uppercase;
+   font-family: tahoma verdana;
+   font-style: italic;
+}
+
+.nav-pills>li>a:hover {
+   border-radius: 0;
+   background-color: #262b31;
+   color: #fff;
+}
+
+.nav-pills>li.active>a,
+.nav-pills>li.active>a:focus,
+.nav-pills>li.active>a:hover {
+   background-color: #262b31;
+   color: #fff;
+}
+
+figure{
+   text-align: center;
+   width: 100%;
+}
+
+.logo {
+   width: 15%;
+   text-align: center;
+}
+
+
+.logo-principal,
+.titulo{
+   background-color: #000;
+   margin: 1rem;
+   padding: .5rem;
+   border-radius: 15px;
+   height: 20%;
+}
+
+.titulo{
+   text-align: center;
+   color: #fff;
+   height: 10%;
+}
+
+.list-produtos{
+   height: 7.5%;
+   color: #fff;
+   font-size: 4rem;
+   background-color: #000;
+   margin: .5rem;
+   border-radius: 15px;
+}
