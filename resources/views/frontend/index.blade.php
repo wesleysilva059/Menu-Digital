@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 
   <head>
@@ -36,6 +36,21 @@
          <div class="carousel-inner full" role="listbox">
             <div class="item active">
                <div class="col-md-4 promocao">
+                  <div class="row titulo-promocao">
+                     <h1>Promoção do Dia</h1>
+                  </div>
+                  <div class="row corpo-promocao" >
+                     <div class="titulo-produto-promocao">
+                        <h2>Picanha</h2> 
+                     </div>
+                     <div class="imagem-produto-promocao">
+                        <img src="/images/picanha_p.png" alt="">
+                     </div>
+                     <div class="preco-promocao">
+                        R$ 39,90
+                     </div>
+                     <div class="unidade">Kg</div>
+                  </div>
                </div>
                <div class="col-md-8 produtos">
                   <div class="logo-principal"></div>
@@ -105,7 +120,7 @@
     <script type="text/javascript" src="/js/bootstrap.js"></script>
     <script type="text/javascript">
       $('.carousel').carousel({
-        interval: 3000
+        interval: 300000
       });
 
     </script>
