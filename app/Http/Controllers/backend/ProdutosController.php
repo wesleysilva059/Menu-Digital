@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Produto;
+use App\Models\Grupo;
 class ProdutosController extends Controller
 {
     /**
@@ -14,7 +15,9 @@ class ProdutosController extends Controller
      */
     public function index()
     {
-        return view('backend.produtos.index');
+
+        $grupos = Grupo::all();
+        return view('backend.produtos.index',compact('grupos'));
     }
 
     public function listDataProdutos()
@@ -26,7 +29,7 @@ class ProdutosController extends Controller
             $row[] = $p->ativo;
             $row[] = $p->id;
             $row[] = $p->nome;
-            $row[] = $p->grupo_id;
+            $row[] = $p->grupo->descricao;
             $row[] = $p->valor;
             $row[] = '<div class="btn-group">
             <a onclick="editFormprodutos('.$p->id.')" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></a>
@@ -45,7 +48,8 @@ class ProdutosController extends Controller
      */
     public function create()
     {
-        return view('backend.produtos.create');
+        $grupos = Grupo::all();
+        return view('backend.produtos.create', compact('grupos'));
     }
 
     /**

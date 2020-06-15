@@ -19,12 +19,13 @@
          </div>	  	  
          <div class="row">       
             <div class="form-group col-md-4">         
-                <label for="grupo">Grupo</label>
-                <select class="form-control" name="grupo_id">
-                    <option>Escolha...</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                </select>         
+               <label for="grupo">Grupo</label>
+               <select class="form-control" name="grupo_id">
+                  <option>Escolha...</option>
+                  @foreach ($grupos as $g)
+                  <option value="{{$g->id}}">{{$g->descricao}}</option>    
+                  @endforeach
+               </select>         
             </div>              
             <div class="form-group col-md-4">         
                 <label for="preco">Valor</label>          
