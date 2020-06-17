@@ -34,37 +34,41 @@
 
           <!-- Wrapper for slides -->
          <div class="carousel-inner full" role="listbox">
-            <div class="item active">
-               <div class="col-md-4 promocao">
-                  <div class="row titulo-promocao">
-                     <h1>Promoção do Dia</h1>
-                  </div>
-                  <div class="row corpo-promocao" >
-                     <div class="titulo-produto-promocao">
-                        <h2>Picanha</h2> 
+            @for ($i = 1; $i <= $cont_gp_bovinos; $i++)
+               @if($i == 1)
+               <div class="item active">
+                  @else
+                  <div class="item">
+                     @endif
+                  <div class="col-md-4 promocao">
+                     <div class="row titulo-promocao">
+                        <h1>Promoção do Dia {{$i}}</h1>
                      </div>
-                     <div class="imagem-produto-promocao">
-                        <img src="/images/picanha_p.png" alt="">
+                     <div class="imagem-prouto-promocao">
+                        <img src="/imagem/picanha_p.png">
                      </div>
                      <div class="preco-promocao">
                         R$ 39,90
                      </div>
-                     <div class="unidade">Kg</div>
-                  </div>
-               </div>
-               <div class="col-md-8 produtos">
-                  <div class="logo-principal"></div>
-                  <div class="titulo">
-                     <h1>Bovinos</h1>
-                  </div>
-                  @for ($i = 0; $i < 8; $i++)
-                     <div class="list-produtos">
-                        <div class="col-md-9 produto">Picanha</div>
-                        <div class="col-md-3 preco">R$ 39,90</div>
+                     <div class="unidade">
+                        Kg
                      </div>
-                  @endfor
+                  </div>
+                  <div class="col-md-8 produtos">
+                     <div class="logo-principal"></div>
+                     <div class="titulo">
+                        <h1>Bovinos</h1>
+                     </div>
+                     @for ($i = 0; $i < 8; $i++)
+                        <div class="list-produtos">
+                           <div class="col-md-9 produto">Picanha</div>
+                           <div class="col-md-3 preco">R$ 39,90</div>
+                        </div>
+                     @endfor
+                  </div>
                </div>
-            </div>
+            @endfor
+
             <div class="item">
                <div class="col-md-4 promocao">
                </div>
@@ -120,7 +124,7 @@
     <script type="text/javascript" src="/js/bootstrap.js"></script>
     <script type="text/javascript">
       $('.carousel').carousel({
-        interval: 300000
+        interval: 3000
       });
 
     </script>

@@ -15,14 +15,17 @@ class HomeController extends Controller
     public function index()
     {
         $bovinos = Produto::where('grupo_id', 1)->orderby('valor','desc')->get()->chunk(8);
-        $bovinos1 = $bovinos->count();
+        $cont_gp_bovinos = $bovinos->count();
 
         $suinos = Produto::where('grupo_id', 2)->orderby('valor','desc')->get()->chunk(8);
+        $cont_gp_suinos = $suinos->count();
 
         $aves = Produto::where('grupo_id', 3)->orderby('valor','desc')->get()->chunk(8);
+        $cont_gp_aves = $aves->count();
 
-        dd($bovinos1,$suinos,$aves);
-        return view('frontend.index', compact('bovinos','suinos','aves'));
+        //dd($bovinos,$cont_gp_bovinos,$suinos, $cont_gp_suinos, $aves, $cont_gp_aves);
+
+        return view('frontend.index', compact('bovinos','suinos','aves','cont_gp_bovinos','cont_gp_suinos','cont_gp_aves'));
     }
 
 }
