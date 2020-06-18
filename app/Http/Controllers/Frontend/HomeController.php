@@ -23,9 +23,58 @@ class HomeController extends Controller
         $aves = Produto::where('grupo_id', 3)->orderby('valor','desc')->get()->chunk(8);
         $cont_gp_aves = $aves->count();
 
-        //dd($bovinos,$cont_gp_bovinos,$suinos, $cont_gp_suinos, $aves, $cont_gp_aves);
+        $promocao_bovinos = [
+                                ['nome' => 'Picanha',
+                                'preco' => '35,90',
+                                'unidade' => 'Kg',
+                                'imagem' => '/images/picanha_p.png'],
+                                ['nome' => 'Alcatra',
+                                'preco' => '29,90',
+                                'unidade' => 'Kg',
+                                'imagem' => '/images/Coxao Mole.png'],
+                                ['nome' => 'Patinho',
+                                'preco' => '25,90',
+                                'unidade' => 'Kg',
+                                'imagem' => '/images/Fraudinha.png']];
+        $promocao_suinos = [
+                                ['nome' => 'Picanha',
+                                'preco' => '35,90',
+                                'unidade' => 'Kg',
+                                'imagem' => '/images/picanha_p.png'],
+                                ['nome' => 'Alcatra',
+                                'preco' => '29,90',
+                                'unidade' => 'Kg',
+                                'imagem' => '/images/Coxao Mole.png'],
+                                ['nome' => 'Patinho',
+                                'preco' => '25,90',
+                                'unidade' => 'Kg',
+                                'imagem' => '/images/Fraudinha.png']];
+        $promocao_aves = [
+                                ['nome' => 'Picanha',
+                                'preco' => '35,90',
+                                'unidade' => 'Kg',
+                                'imagem' => '/images/picanha_p.png'],
+                                ['nome' => 'Alcatra',
+                                'preco' => '29,90',
+                                'unidade' => 'Kg',
+                                'imagem' => '/images/Coxao Mole.png'],
+                                ['nome' => 'Patinho',
+                                'preco' => '25,90',
+                                'unidade' => 'Kg',
+                                'imagem' => '/images/Fraudinha.png']];
 
-        return view('frontend.index', compact('bovinos','suinos','aves','cont_gp_bovinos','cont_gp_suinos','cont_gp_aves'));
+
+        return view('frontend.index', compact(
+            'bovinos',
+            'suinos',
+            'aves',
+            'cont_gp_bovinos',
+            'cont_gp_suinos',
+            'cont_gp_aves',
+            'promocao_bovinos',
+            'promocao_suinos',
+            'promocao_aves'
+        ));
     }
 
 }

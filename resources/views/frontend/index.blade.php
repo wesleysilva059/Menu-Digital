@@ -33,89 +33,120 @@
                 </ol>-->
 
           <!-- Wrapper for slides -->
+
          <div class="carousel-inner full" role="listbox">
-            @for ($i = 1; $i <= $cont_gp_bovinos; $i++)
-               @if($i == 1)
-               <div class="item active">
-                  @else
+            @for ($j = 0; $j < $cont_gp_bovinos; $j++)
+               @if($j == 0)
+                  <div class="item active">
+               @else
                   <div class="item">
-                     @endif
-                  <div class="col-md-4 promocao">
-                     <div class="row titulo-promocao">
-                        <h1>Promoção do Dia {{$i}}</h1>
+               @endif
+                     <div class="col-md-4 promocao">
+                        <div class="row titulo-promocao">
+                           <h1>Promoção do Dia</h1>
+                        </div>
+                        <div class="row corpo-promocao" >
+                           <div class="titulo-produto-promocao">
+                              <h2>{{$promocao_bovinos[$j]['nome']}}</h2> 
+                           </div>
+                           <div class="imagem-produto-promocao">
+                              <img src="{{$promocao_bovinos[$j]['imagem']}}" alt="">
+                           </div>
+                           <div class="preco-promocao">
+                              {{$promocao_bovinos[$j]['preco']}}
+                           </div>
+                           <div class="unidade">{{$promocao_bovinos[$j]['unidade']}}</div>
+                        </div>
                      </div>
-                     <div class="imagem-prouto-promocao">
-                        <img src="/imagem/picanha_p.png">
-                     </div>
-                     <div class="preco-promocao">
-                        R$ 39,90
-                     </div>
-                     <div class="unidade">
-                        Kg
-                     </div>
-                  </div>
                   <div class="col-md-8 produtos">
                      <div class="logo-principal"></div>
                      <div class="titulo">
                         <h1>Bovinos</h1>
                      </div>
-                     @for ($i = 0; $i < 8; $i++)
+                     @foreach($bovinos[$j] as $b)
                         <div class="list-produtos">
-                           <div class="col-md-9 produto">Picanha</div>
-                           <div class="col-md-3 preco">R$ 39,90</div>
+                           <div class="col-md-9 produto">{{$b->nome}}</div>
+                           <div class="col-md-3 preco">R$ {{$b->valor}}</div>
                         </div>
-                     @endfor
+                     @endforeach
                   </div>
                </div>
             @endfor
 
-            <div class="item">
-               <div class="col-md-4 promocao">
-               </div>
-               <div class="col-md-8 produtos">
-                  <div class="logo-principal"></div>
-                  <div class="titulo">
-                     <h1>Bovinos</h1>
-                  </div>
-                  @for ($i = 0; $i < 8; $i++)
-                     <div class="list-produtos">
-                        <div class="col-md-9 produto">Acém</div>
-                        <div class="col-md-3 preco">R$ 29,90</div>
+            @for ($j = 0; $j < $cont_gp_suinos; $j++)
+               @if($j == 1)
+                  <div class="item active">
+               @else
+                  <div class="item">
+               @endif
+                     <div class="col-md-4 promocao">
+                        <div class="row titulo-promocao">
+                           <h1>Promoção do Dia</h1>
+                        </div>
+                        <div class="row corpo-promocao" >
+                           <div class="titulo-produto-promocao">
+                              <h2>{{$promocao_suinos[$j]['nome']}}</h2> 
+                           </div>
+                           <div class="imagem-produto-promocao">
+                              <img src="{{$promocao_suinos[$j]['imagem']}}" alt="">
+                           </div>
+                           <div class="preco-promocao">
+                              {{$promocao_suinos[$j]['preco']}}
+                           </div>
+                           <div class="unidade">{{$promocao_suinos[$j]['unidade']}}</div>
+                        </div>
                      </div>
-                  @endfor
-               </div>
-            </div>
-            <div class="item">
-               <div class="col-md-4 promocao">
-               </div>
-               <div class="col-md-8 produtos">
-                  <div class="logo-principal"></div>
-                  <div class="titulo">
-                     <h1>Suínos</h1>
-                  </div>
-                  @for ($i = 0; $i < 8; $i++)
-                     <div class="list-produtos">
-                        <div class="col-md-9 produto">Costelinha</div>
-                        <div class="col-md-3 preco">R$ 19,90</div>
+                  <div class="col-md-8 produtos">
+                     <div class="logo-principal"></div>
+                     <div class="titulo">
+                        <h1>Suínos</h1>
                      </div>
-                  @endfor
-               </div>
-            </div>
-            <div class="item">
-               <div class="col-md-4 promocao">
-               </div>
-               <div class="col-md-8 produtos">
-                  <div class="logo-principal"></div>
-                  <div class="titulo">
-                     <h1>Aves</h1>
+                     @foreach($suinos[$j] as $b)
+                        <div class="list-produtos">
+                           <div class="col-md-9 produto">{{$b->nome}}</div>
+                           <div class="col-md-3 preco">R$ {{$b->valor}}</div>
+                        </div>
+                     @endforeach
                   </div>
-                  @for ($i = 0; $i < 8; $i++)
-                     <div class="list-produtos">
-                        <div class="col-md-9 produto">Frango</div>
-                        <div class="col-md-3 preco">R$ 15,90</div>
-                     </div>
-                  @endfor
                </div>
+            @endfor
+            @for ($j = 0; $j < $cont_gp_aves; $j++)
+               @if($j == 1)
+                  <div class="item active">
+               @else
+                  <div class="item">
+               @endif
+                     <div class="col-md-4 promocao">
+                        <div class="row titulo-promocao">
+                           <h1>Promoção do Dia</h1>
+                        </div>
+                        <div class="row corpo-promocao" >
+                           <div class="titulo-produto-promocao">
+                              <h2>{{$promocao_aves[$j]['nome']}}</h2> 
+                           </div>
+                           <div class="imagem-produto-promocao">
+                              <img src="{{$promocao_aves[$j]['imagem']}}" alt="">
+                           </div>
+                           <div class="preco-promocao">
+                              {{$promocao_aves[$j]['preco']}}
+                           </div>
+                           <div class="unidade">{{$promocao_aves[$j]['unidade']}}</div>
+                        </div>
+                     </div>
+                  <div class="col-md-8 produtos">
+                     <div class="logo-principal"></div>
+                     <div class="titulo">
+                        <h1>Aves</h1>
+                     </div>
+                     @foreach($aves[$j] as $b)
+                        <div class="list-produtos">
+                           <div class="col-md-9 produto">{{$b->nome}}</div>
+                           <div class="col-md-3 preco">R$ {{$b->valor}}</div>
+                        </div>
+                     @endforeach
+                  </div>
+               </div>
+            @endfor
           </div>
         </div>
       </div>

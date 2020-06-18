@@ -15,7 +15,16 @@ class CreatePromocoesTable extends Migration
     {
         Schema::create('promocoes', function (Blueprint $table) {
             $table->id();
+            $table->string('nome');
+            $table->decimal('preco');
+            $table->unsignedInteger('grupo_id');
+            $table->string('imagem');
+            $table->string('unidade');
             $table->timestamps();
+
+            $table->foreign('grupo_id')->references('id')->on('grupo')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 
