@@ -12,4 +12,8 @@ class Grupo extends Model
    public function produto(){
       return $this->hasMany('App\Models\Produto');
    }
+
+   public function promocao(){
+    return $this->hasMany('App\Models\Promocao');
+ }
 }

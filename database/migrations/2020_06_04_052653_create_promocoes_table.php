@@ -18,12 +18,15 @@ class CreatePromocoesTable extends Migration
             $table->string('nome');
             $table->decimal('preco');
             $table->unsignedInteger('grupo_id');
-            $table->string('imagem');
-            $table->string('unidade');
+            $table->string('imagem')->nullable();
+            $table->unsignedInteger('unidade_id');
             $table->integer('status');
             $table->timestamps();
 
             $table->foreign('grupo_id')->references('id')->on('grupos')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            $table->foreign('unidade_id')->references('id')->on('unidades')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
         });

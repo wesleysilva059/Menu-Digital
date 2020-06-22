@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\backend;
 
-use App\Http\Controllers\Controller;
+use App\Models\Grupo;
+use App\Models\Promocao;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class PromocoesController extends Controller
 {
@@ -14,7 +16,39 @@ class PromocoesController extends Controller
      */
     public function index()
     {
-        //
+        $grupos = Grupo::all();
+
+        return view('backend.promocoes.index', compact('grupos'));
+    }
+
+    public function listDataPromocoes()
+    {
+        $promocoes = Promocao::all();
+        $data = array();
+        foreach($promocoes as $p){
+            $row = array();
+            $row[] = $p->status;
+            $row[] = $p->nome;
+            $row[] = $p->preco;
+            $row[] = $p->grupo->descricao;
+            $row[] = $p->unidade;
+            $row[] = $p->imagem;
+            $row[] = '<div class="btn-group">
+                        <a onclick="editFormPromocao('.$p->id.')" class="btn btn-primary btn-sm">
+                            <i class="fa fa-pencil"></i>
+                        <\a>
+                        <a onclick="deleteDataPromocao('.$p->id.')" class="btn btn-danger btn-sm">
+                            <i class="fa fa-trash"><\i>
+                        <\a>
+                      <\div>';
+            $data[] = $row;
+        }
+
+        $output = array("data" => $data);
+
+        return response()->json($output);
+
+
     }
 
     /**
@@ -24,7 +58,8 @@ class PromocoesController extends Controller
      */
     public function create()
     {
-        //
+        $grupos = Grupo::all();
+        return view('backend.promocoes.create', compact('grupos'));
     }
 
     /**
@@ -35,7 +70,31 @@ class PromocoesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $promocao = new Promocao;
+        $promocao->nome = $request['nome'];
+        $promocao->grupo_id = $request['grupo_id'];
+        $promocao->preco = $request['preco'];
+        $promocao->status = $request['status'];
+        $promocao->unidade = $request['unidade'];
+        $promocao->save();
+
+        if($request->hasFile('imagem') && $request->file('imagem')->isValid())
+        {
+            $nome = uniqid(date('HisYmd'));
+            $extensao = $request->imagem->extension();
+            $nomeArquivo = "{$nome}.{$extensao}";
+            $upload = $request->imagem->storeAs('promocao/imagem/'.$promocao->id, $nomeArquivo);
+            if(!$upload)
+            {
+                return redirect()
+                ->back()
+                ->with('error', 'Falha ao carregar Imagem.')
+                ->withInput();
+            } else {
+                $promocao->imagem = url('/storage/promocoes/imagem').'/'.$promocao->id.'/'.$nomeArquivo;
+                $promocao->save();
+            }
+        }
     }
 
     /**
