@@ -20,6 +20,7 @@ class CreatePromocoesTable extends Migration
             $table->unsignedInteger('grupo_id');
             $table->string('imagem');
             $table->string('unidade');
+            $table->integer('status');
             $table->timestamps();
 
             $table->foreign('grupo_id')->references('id')->on('grupos')

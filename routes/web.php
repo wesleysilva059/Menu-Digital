@@ -43,7 +43,6 @@ Route::group(['prefix' => '/backend'], function () {
     ]);
 
 
-
     Route::get('/grupos', [
         'as'    => 'backend.grupos',
         'uses'  => 'Backend\GruposController@index'
@@ -59,6 +58,52 @@ Route::group(['prefix' => '/backend'], function () {
     Route::post('/grupos/store', [
         'as'    => 'backend.grupos.store',
         'uses'  => 'Backend\GruposController@store'
+    ]);
+
+
+    Route::get('/promocoes', [
+        'as'    => 'backend.promocoes',
+        'uses'  => 'Backend\PromocoesController@index'
+    ]);
+    Route::get('/listDatapromocoes', [
+        'as'    => 'backend.promocoes.listdata',
+        'uses'  => 'Backend\PromocoesController@listDatapromocoes'
+    ]);
+    Route::get('/promocoes/create', [
+        'as'    => 'backend.promocoes.create',
+        'uses'  => 'Backend\PromocoesController@create'
+    ]);
+    Route::post('/promocoes/store', [
+        'as'    => 'backend.promocoes.store',
+        'uses'  => 'Backend\PromocoesController@store'
+    ]);
+
+
+    Route::get('/usuarios', [
+        'as'    => 'backend.usuarios',
+        'uses'  => 'Backend\UsuariosController@index'
+    ]);
+    Route::get('/listDataUsuarios', [
+        'as'    => 'backend.usuarios.listdata',
+        'uses'  => 'Backend\UsuariosController@listDatapromocoes'
+    ]);
+    Route::get('/usuarios/create', [
+        'as'    => 'backend.usuarios.create',
+        'uses'  => 'Backend\UsuariosController@create'
+    ]);
+    Route::post('/usuarios/store', [
+        'as'    => 'backend.usuarios.store',
+        'uses'  => 'Backend\UsuariosController@store'
+    ]);
+
+
+    Route::get('/configuracoes', [
+        'as'    => 'backend.configuracoes',
+        'uses'  => 'Backend\ConfiguracoesController@index'
+    ]);
+    Route::post('/configuracoes/store', [
+        'as'    => 'backend.configuracoes.store',
+        'uses'  => 'Backend\ConfiguracoesController@store'
     ]);
 });
 

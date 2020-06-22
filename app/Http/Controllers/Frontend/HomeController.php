@@ -31,11 +31,8 @@ class HomeController extends Controller
                                 ['nome' => 'Alcatra',
                                 'preco' => '29,90',
                                 'unidade' => 'Kg',
-                                'imagem' => '/images/Coxao Mole.png'],
-                                ['nome' => 'Patinho',
-                                'preco' => '25,90',
-                                'unidade' => 'Kg',
-                                'imagem' => '/images/Fraudinha.png']];
+                                'imagem' => '/images/Coxao Mole.png']
+        ];
         $promocao_suinos = [
                                 ['nome' => 'Picanha',
                                 'preco' => '35,90',
