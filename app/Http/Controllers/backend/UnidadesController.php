@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\backend;
 
-use App\Models\Usuario;
+use App\Models\Unidade;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class UsuariosController extends Controller
+class UnidadesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,20 +15,20 @@ class UsuariosController extends Controller
      */
     public function index()
     {
-        //
+        return view('backend.unidades.index');
     }
 
-    public function listDataUsuarios()
+    public function listDataUnidades()
     {
-        $usuarios = Usuario::all();
+        $unidades = Unidade::all();
         $data = array();
-        foreach($usuarios as $p){
+        foreach($unidades as $p){
             $row = array();
             $row[] = $p->id;
             $row[] = $p->descricao;
             $row[] = '<div class="btn-group">
-            <a onclick="editFormUsuarios('.$p->id.')" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></a>
-            <a onclick="deleteDataUsuarios('.$p->id.')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a></div>';
+            <a onclick="editFormUnidades('.$p->id.')" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></a>
+            <a onclick="deleteDataUnidades('.$p->id.')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a></div>';
             $data[] = $row;
         }
         $output = array("data" => $data);
@@ -43,7 +43,7 @@ class UsuariosController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.unidades.create');
     }
 
     /**

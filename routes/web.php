@@ -85,7 +85,7 @@ Route::group(['prefix' => '/backend'], function () {
     ]);
     Route::get('/listDataUsuarios', [
         'as'    => 'backend.usuarios.listdata',
-        'uses'  => 'Backend\UsuariosController@listDatapromocoes'
+        'uses'  => 'Backend\UsuariosController@listDataUsuarios'
     ]);
     Route::get('/usuarios/create', [
         'as'    => 'backend.usuarios.create',
@@ -94,6 +94,24 @@ Route::group(['prefix' => '/backend'], function () {
     Route::post('/usuarios/store', [
         'as'    => 'backend.usuarios.store',
         'uses'  => 'Backend\UsuariosController@store'
+    ]);
+
+
+    Route::get('/unidades', [
+        'as'    => 'backend.unidades',
+        'uses'  => 'Backend\UnidadesController@index'
+    ]);
+    Route::get('/listDataunidades', [
+        'as'    => 'backend.unidades.listdata',
+        'uses'  => 'Backend\UnidadesController@listDataUnidades'
+    ]);
+    Route::get('/unidades/create', [
+        'as'    => 'backend.unidades.create',
+        'uses'  => 'Backend\UnidadesController@create'
+    ]);
+    Route::post('/unidades/store', [
+        'as'    => 'backend.unidades.store',
+        'uses'  => 'Backend\UnidadesController@store'
     ]);
 
 

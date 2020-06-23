@@ -18,7 +18,9 @@
       </li>
       <li id="menu-comunicacao" ><a href="{{route('backend.promocoes')}}"><i class="fa fa-book nav_icon"></i><span>Promoções</span><span class="fa fa-angle-right" style="float: right"></span></a>
         <ul id="menu-comunicacao-sub" >
-          <li id="menu-mensagens" style="width: 120px" ><a href="{{route('backend.promocoes.create')}}">Cadastro</a>	             
+          <li id="menu-mensagens"><a href="{{route('backend.promocoes.create')}}">Cadastro de Promoções</a>	             
+          </li>
+          <li id="menu-mensagens"><a href="{{route('backend.unidades.create')}}">Cadastro de Unidades</a>	             
           </li>
         </ul>
       </li>

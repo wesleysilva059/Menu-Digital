@@ -7,7 +7,7 @@
          <h2>Cadastro de Promoções</h2>
       </div>
 
-      <form action="{{route('backend.promoções.store')}}" method="post">	  
+      <form action="{{route('backend.promocoes.store')}}" method="post">	  
       {{ csrf_field() }}
       <!-- area de campos do form -->	  
       <hr />	  
@@ -29,11 +29,20 @@
             </div>              
             <div class="form-group col-md-4">         
                 <label for="preco">Valor</label>          
-                <input type="text" class="form-control" name="valor">
+                <input type="text" class="form-control" name="preco">
             </div>              
          </div>
-         <div class="row">       
-            <div class="form-group col-md-8">         
+         <div class="row">
+            <div class="form-group col-md-4">         
+               <label for="unidade">Unidade</label>
+               <select class="form-control" name="unidade_id">
+                  <option>Escolha...</option>
+                  @foreach ($unidades as $u)
+                  <option value="{{$u->id}}">{{$u->descricao}}</option>    
+                  @endforeach
+               </select>         
+            </div>     
+            <div class="form-group col-md-4">         
                 <label for="status">Status</label>         
                 <select class="form-control" name="status">
                     <option>Escolha...</option>
@@ -42,7 +51,7 @@
                 </select>
             </div>               
          </div>
-         <div class="form-group col-md-5" style="float: right">
+         <div class="form-group col-md-5">
             <label for="exampleFormControlFile1">Adicionar Imagem de Exibição</label>
             <input type="file" class="filestyle" value="{{old('imagem')}}" name="imagem" data-buttonName="btn-primary" required="">
         </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backend;
 
 use App\Models\Grupo;
+use App\Models\Unidade;
 use App\Models\Promocao;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -31,7 +32,7 @@ class PromocoesController extends Controller
             $row[] = $p->nome;
             $row[] = $p->preco;
             $row[] = $p->grupo->descricao;
-            $row[] = $p->unidade;
+            $row[] = $p->unidade->descricao;
             $row[] = $p->imagem;
             $row[] = '<div class="btn-group">
                         <a onclick="editFormPromocao('.$p->id.')" class="btn btn-primary btn-sm">
@@ -59,7 +60,8 @@ class PromocoesController extends Controller
     public function create()
     {
         $grupos = Grupo::all();
-        return view('backend.promocoes.create', compact('grupos'));
+        $unidades = Unidade::all();
+        return view('backend.promocoes.create', compact('grupos','unidades'));
     }
 
     /**
