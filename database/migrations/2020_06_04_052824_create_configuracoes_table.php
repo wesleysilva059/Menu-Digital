@@ -15,7 +15,9 @@ class CreateConfiguracoesTable extends Migration
     {
         Schema::create('configuracoes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('ordena');
+            $table->string('coluna_ordena');
+            $table->string('direcao_ordena');
+            $table->integer('tempo_transicao');
             $table->timestamps();
         });
     }

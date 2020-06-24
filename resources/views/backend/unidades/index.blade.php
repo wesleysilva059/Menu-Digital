@@ -7,13 +7,13 @@
          <h2>Lista de Unidades</h2>
       </div>
       <div class="col-md-3">
-      <a href="{{route('backend.unidades.create')}}" class="btn btn-success"><i class="fa fa-plus-circle"></i> Novo Grupo</a>
+      <a href="{{route('backend.unidades.create')}}" class="btn btn-success"><i class="fa fa-plus-circle"></i> Nova Unidade</a>
       </div>
 
       <div class="box">
          <div class="box-body">
    
-            <form method="post" id="form-grupo">
+            <form method="post" id="form-unidade">
             {{ csrf_field() }}
             <table class="table table-striped" id="example">
                <thead>

@@ -7,6 +7,7 @@ use App\Models\Unidade;
 use App\Models\Promocao;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
 
 class PromocoesController extends Controller
 {
@@ -37,11 +38,11 @@ class PromocoesController extends Controller
             $row[] = '<div class="btn-group">
                         <a onclick="editFormPromocao('.$p->id.')" class="btn btn-primary btn-sm">
                             <i class="fa fa-pencil"></i>
-                        <\a>
+                        </a>
                         <a onclick="deleteDataPromocao('.$p->id.')" class="btn btn-danger btn-sm">
-                            <i class="fa fa-trash"><\i>
-                        <\a>
-                      <\div>';
+                            <i class="fa fa-trash"></i>
+                        </a>
+                      </div>';
             $data[] = $row;
         }
 
@@ -77,7 +78,7 @@ class PromocoesController extends Controller
         $promocao->grupo_id = $request['grupo_id'];
         $promocao->preco = $request['preco'];
         $promocao->status = $request['status'];
-        $promocao->unidade = $request['unidade'];
+        $promocao->unidade_id = $request['unidade_id'];
         $promocao->save();
 
         if($request->hasFile('imagem') && $request->file('imagem')->isValid())
@@ -96,6 +97,14 @@ class PromocoesController extends Controller
                 $promocao->imagem = url('/storage/promocoes/imagem').'/'.$promocao->id.'/'.$nomeArquivo;
                 $promocao->save();
             }
+        }
+
+        if($promocao){
+            return redirect()->route('backend.promocoes', compact('promocao'))
+                        ->with('success', 'Promoção Gravada com sucesso.');
+        } else {
+            return redirect()->back()->withInput(Input::all())
+                ->with('error','Erro ao salvar promoção.');
         }
     }
 

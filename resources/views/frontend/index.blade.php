@@ -155,7 +155,7 @@
     <script type="text/javascript" src="/js/bootstrap.js"></script>
     <script type="text/javascript">
       $('.carousel').carousel({
-        interval: 3000
+        interval: "{{$tempo}}"
       });
 
     </script>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend;
 use App\Models\Unidade;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
 
 class UnidadesController extends Controller
 {
@@ -54,7 +55,15 @@ class UnidadesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $unidade = Unidade::create($request->all());
+        
+        if($unidade){
+            return redirect()->route('backend.unidades', compact('unidade'))
+                        ->with('success', 'Unidade Gravada com sucesso.');
+        } else {
+            return redirect()->back()->withInput(Input::all())
+                ->with('error','Já existe um diário cadastrado com este dia.');
+        }
     }
 
     /**
