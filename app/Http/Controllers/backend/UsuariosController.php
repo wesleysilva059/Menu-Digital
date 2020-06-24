@@ -15,7 +15,7 @@ class UsuariosController extends Controller
      */
     public function index()
     {
-        //
+        return view('backend.usuarios');
     }
 
     public function listDataUsuarios()
@@ -32,7 +32,7 @@ class UsuariosController extends Controller
             $data[] = $row;
         }
         $output = array("data" => $data);
-        
+
         return response()->json($output);
     }
 
