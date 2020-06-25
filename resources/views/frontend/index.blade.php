@@ -55,7 +55,7 @@
                            <div class="preco-promocao">
                               {{isset($promocao_bovinos[$j]['preco']) ? $promocao_bovinos[$j]['preco'] : ''}}
                            </div>
-                           <div class="unidade">{{isset($promocao_bovinos[$j]) ? $promocao_bovinos[$j]['unidade'] : ''}}</div>
+                           <div class="unidade">{{isset($promocao_bovinos[$j]['unid']) ? $promocao_bovinos[$j]['unid'] : ''}}</div>
                         </div>
                      </div>
                   <div class="col-md-8 produtos">
@@ -85,15 +85,15 @@
                         </div>
                         <div class="row corpo-promocao" >
                            <div class="titulo-produto-promocao">
-                              <h2>{{$promocao_suinos[$j]['nome']}}</h2> 
+                              <h2>{{isset($promocao_suinos[$j]) ? $promocao_suinos[$j]['nome'] : ''}}</h2> 
                            </div>
                            <div class="imagem-produto-promocao">
-                              <img src="{{$promocao_suinos[$j]['imagem']}}" alt="">
+                              <img src="{{$promocao_suinos[$j]['imagem'] ?? ''}}" alt="">
                            </div>
                            <div class="preco-promocao">
-                              {{$promocao_suinos[$j]['preco']}}
+                              {{isset($promocao_suinos[$j]['preco']) ? $promocao_suinos[$j]['preco'] : ''}}
                            </div>
-                           <div class="unidade">{{$promocao_suinos[$j]['unidade']}}</div>
+                           <div class="unidade">{{isset($promocao_suinos[$j]['unid']) ? $promocao_suinos[$j]['unid'] : ''}}</div>
                         </div>
                      </div>
                   <div class="col-md-8 produtos">
@@ -122,15 +122,15 @@
                         </div>
                         <div class="row corpo-promocao" >
                            <div class="titulo-produto-promocao">
-                              <h2>{{$promocao_aves[$j]['nome']}}</h2> 
+                              <h2>{{isset($promocao_aves[$j]) ? $promocao_aves[$j]['nome'] : ''}}</h2> 
                            </div>
                            <div class="imagem-produto-promocao">
-                              <img src="{{$promocao_aves[$j]['imagem']}}" alt="">
+                              <img src="{{$promocao_aves[$j]['imagem'] ?? ''}}" alt="">
                            </div>
                            <div class="preco-promocao">
-                              {{$promocao_aves[$j]['preco']}}
+                              {{isset($promocao_aves[$j]['preco']) ? $promocao_aves[$j]['preco'] : ''}}
                            </div>
-                           <div class="unidade">{{$promocao_aves[$j]['unidade']}}</div>
+                           <div class="unidade">{{isset($promocao_aves[$j]['unid']) ? $promocao_aves[$j]['unid'] : ''}}</div>
                         </div>
                      </div>
                   <div class="col-md-8 produtos">

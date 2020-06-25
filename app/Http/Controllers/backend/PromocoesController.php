@@ -73,6 +73,8 @@ class PromocoesController extends Controller
      */
     public function store(Request $request)
     {
+        
+        //dd($request);
         $promocao = new Promocao;
         $promocao->nome = $request['nome'];
         $promocao->grupo_id = $request['grupo_id'];
@@ -127,7 +129,9 @@ class PromocoesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $promocao = Promocao::find($id);
+
+        return view('backend.promocoes.edit');
     }
 
     /**
@@ -139,7 +143,40 @@ class PromocoesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $promocao = Promocao::find($id);
+        
+        $promocao->nome = $request['nome'];
+        $promocao->grupo_id = $request['grupo_id'];
+        $promocao->preco = $request['preco'];
+        $promocao->status = $request['status'];
+        $promocao->unidade_id = $request['unidade_id'];
+        $promocao->save();
+
+        if($request->hasFile('imagem') && $request->file('imagem')->isValid())
+        {
+            $nome = uniqid(date('HisYmd'));
+            $extensao = $request->imagem->extension();
+            $nomeArquivo = "{$nome}.{$extensao}";
+            $upload = $request->imagem->storeAs('promocao/imagem/'.$promocao->id, $nomeArquivo);
+            if(!$upload)
+            {
+                return redirect()
+                ->back()
+                ->with('error', 'Falha ao carregar Imagem.')
+                ->withInput();
+            } else {
+                $promocao->imagem = url('/storage/promocoes/imagem').'/'.$promocao->id.'/'.$nomeArquivo;
+                $promocao->save();
+            }
+        }
+
+        if($promocao){
+            return redirect()->route('backend.promocoes', compact('promocao'))
+                        ->with('success', 'Promoção Gravada com sucesso.');
+        } else {
+            return redirect()->back()->withInput(Input::all())
+                ->with('error','Erro ao salvar promoção.');
+        }
     }
 
     /**

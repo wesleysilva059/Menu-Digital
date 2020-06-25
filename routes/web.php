@@ -95,6 +95,18 @@ Route::group(['prefix' => '/backend'], function () {
         'as'    => 'backend.usuarios.store',
         'uses'  => 'Backend\UsuariosController@store'
     ]);
+    Route::get('/usuarios/edit/{id}', [
+        'as'    => 'backend.usuarios.edit',
+        'uses'  => 'Backend\UsuariosController@edit'
+    ]);
+    Route::put('/usuarios/update/{id}', [
+        'as'    => 'backend.usuarios.update',
+        'uses'  => 'Backend\UsuariosController@update'
+    ]);
+    Route::delete('/usuarios/delete/{id}', [
+        'as'    => 'backend.usuarios.delete',
+        'uses'  => 'Backend\UsuariosController@delete'
+    ]);
 
 
     Route::get('/unidades', [
