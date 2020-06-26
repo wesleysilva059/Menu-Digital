@@ -37,7 +37,7 @@ class ProdutosController extends Controller
             $data[] = $row;
         }
         $output = array("data" => $data);
-        
+
         return response()->json($output);
     }
 
@@ -78,7 +78,7 @@ class ProdutosController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -89,7 +89,8 @@ class ProdutosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $grupos = Grupo::all();
+        return view('backend.produtos.edit', compact('grupos'));
     }
 
     /**
@@ -101,7 +102,15 @@ class ProdutosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $produto = Produto::find($id);
+
+        $produto->nome = $request['nome'];
+        $produto->grupo_id = $request['grupo_id'];
+        $produto->valor = $request['valor'];
+        $produto->status = $request['status'];
+        $produto->save();
+
+        return redirect()->route('backend.produtos')->with('success', 'Produto cadastrado com Sucesso!');
     }
 
     /**
@@ -110,8 +119,9 @@ class ProdutosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+        $produto = Produto::find($id);
+        $produto->delete();
     }
 }

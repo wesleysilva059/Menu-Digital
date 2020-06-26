@@ -1,6 +1,6 @@
 .row {
    margin-right: 0;
-   margin-left: 0; 
+   margin-left: 0;
 }
 
 html,
@@ -45,7 +45,7 @@ table {
 
 .full {
    height: 100%;
-   background-image: url('/images/fundo-madeira.jpg'); 
+   background-image: url('/images/fundo-madeira.jpg');
    background-size: 1920px 1080px;
    width: 100%;
 }
@@ -239,12 +239,13 @@ figure{
 
 .titulo-produto-promocao h2{
    font-size: 4em;
-   margin-top: 20%;
+   margin-top: 3%;
 }
 
 .imagem-produto-promocao img{
    width: 25rem;
    margin-top: 20%;
+   max-height: 130px;
 }
 
 .preco-promocao{

@@ -34,7 +34,7 @@ class PromocoesController extends Controller
             $row[] = $p->preco;
             $row[] = $p->grupo->descricao;
             $row[] = $p->unidade->descricao;
-            $row[] = $p->imagem;
+            $row[] = '<figure><img style="width:50px" src="'.url($p->imagem).'"></figure>';
             $row[] = '<div class="btn-group">
                         <a href="'.route("backend.promocoes.edit", $p->id).'" class="btn btn-primary btn-sm">
                             <i class="fa fa-pencil"></i>
@@ -73,7 +73,7 @@ class PromocoesController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         //dd($request);
         $promocao = new Promocao;
         $promocao->nome = $request['nome'];
@@ -147,7 +147,7 @@ class PromocoesController extends Controller
     public function update(Request $request, $id)
     {
         $promocao = Promocao::find($id);
-        
+
         $promocao->nome = $request['nome'];
         $promocao->grupo_id = $request['grupo_id'];
         $promocao->preco = $request['preco'];
@@ -188,8 +188,9 @@ class PromocoesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+        $promocao = Promocao::find($id);
+        $promocao->delete();
     }
 }

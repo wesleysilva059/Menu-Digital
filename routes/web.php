@@ -24,7 +24,7 @@ Route::group(['prefix' => '/backend'], function () {
         'as'    => 'backend.index',
         'uses'  => 'Backend\AppController@index'
     ]);
-    
+
     Route::get('/produtos', [
         'as'    => 'backend.produtos',
         'uses'  => 'Backend\ProdutosController@index'
@@ -40,6 +40,18 @@ Route::group(['prefix' => '/backend'], function () {
     Route::post('/produtos/store', [
         'as'    => 'backend.produtos.store',
         'uses'  => 'Backend\ProdutosController@store'
+    ]);
+    Route::get('/produtos/edit/{id}', [
+        'as'    => 'backend.produtos.edit',
+        'uses'  => 'Backend\ProdutosController@edit'
+    ]);
+    Route::put('/produtos/update/{id}', [
+        'as'    => 'backend.produtos.update',
+        'uses'  => 'Backend\ProdutosController@update'
+    ]);
+    Route::delete('/produtos/delete/{id}', [
+        'as'    => 'backend.produtos.delete',
+        'uses'  => 'Backend\ProdutosController@delete'
     ]);
 
 
@@ -58,6 +70,18 @@ Route::group(['prefix' => '/backend'], function () {
     Route::post('/grupos/store', [
         'as'    => 'backend.grupos.store',
         'uses'  => 'Backend\GruposController@store'
+    ]);
+    Route::get('/grupos/edit/{id}', [
+        'as'    => 'backend.grupos.edit',
+        'uses'  => 'Backend\GruposController@edit'
+    ]);
+    Route::put('/grupos/update/{id}', [
+        'as'    => 'backend.grupos.update',
+        'uses'  => 'Backend\GruposController@update'
+    ]);
+    Route::delete('/grupos/delete/{id}', [
+        'as'    => 'backend.grupos.delete',
+        'uses'  => 'Backend\GruposController@delete'
     ]);
 
 
@@ -137,6 +161,18 @@ Route::group(['prefix' => '/backend'], function () {
         'as'    => 'backend.unidades.store',
         'uses'  => 'Backend\UnidadesController@store'
     ]);
+    Route::get('/unidades/edit/{id}', [
+        'as'    => 'backend.unidades.edit',
+        'uses'  => 'Backend\UnidadesController@edit'
+    ]);
+    Route::put('/unidades/update/{id}', [
+        'as'    => 'backend.unidades.update',
+        'uses'  => 'Backend\UnidadesController@update'
+    ]);
+    Route::delete('/unidades/delete/{id}', [
+        'as'    => 'backend.unidades.delete',
+        'uses'  => 'Backend\UnidadesController@delete'
+    ]);
 
 
     Route::get('/configuracoes', [
@@ -148,4 +184,3 @@ Route::group(['prefix' => '/backend'], function () {
         'uses'  => 'Backend\ConfiguracoesController@store'
     ]);
 });
-

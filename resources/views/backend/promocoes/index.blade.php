@@ -12,10 +12,10 @@
 
       <div class="box">
          <div class="box-body">
-   
+
             <form method="post" id="form-produto">
             {{ csrf_field() }}
-            <table class="table table-striped" id="example">
+            <table class="table table-striped" id="table-promocoes">
                <thead>
                   <tr>
                   <th width="60">Status</th>
@@ -30,11 +30,11 @@
                <tbody></tbody>
             </table>
             </form>
-   
+
          </div>
       </div>
 
-         <div class="clearfix"> </div>     
+         <div class="clearfix"> </div>
   </div>
 </div>
 
@@ -43,12 +43,12 @@
 <script type="text/javascript">
 
    var table;
-   
-      $(document).ready(function() {
-    
+
+    $(document).ready(function() {
+
        // DataTable
        //var table = $('#example').DataTable();
-       table = $('#example').DataTable({
+       table = $('#table-promocoes').DataTable({
          "language": {
              "url": "//cdn.datatables.net/plug-ins/1.10.18/i18n/Portuguese-Brasil.json"
            },
@@ -64,8 +64,25 @@
               'orderable': false
            }],
            'order': [1, 'asc']
-        }); 
-   
-   } );
+        });
+    });
+
+    function deleteDataPromocao(id){
+        if(confirm("Tem certeza de que deseja excluir essa promoção?")){
+            var url = '/backend/promocoes/delete/'+id;
+            $.ajax({
+            url : url,
+            type : 'DELETE',
+            data : {'_token' : $('meta[name=csrf-token]').attr('content')},
+            success : function(data){
+                $('#table-promocoes').DataTable().ajax.reload();
+            },
+            error : function(){
+                alert("Não foi possível excluir os dados!");
+            }
+            });
+        }
+    }
    </script>
 @endsection
+
