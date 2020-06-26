@@ -50,7 +50,7 @@
                               <h2>{{isset($promocao_bovinos[$j]) ? $promocao_bovinos[$j]['nome'] : ''}}</h2> 
                            </div>
                            <div class="imagem-produto-promocao">
-                              <img src="{{$promocao_bovinos[$j]['imagem'] ?? ''}}" alt="">
+                              <img src="{{isset($promocao_bovinos[$j]) ? url($promocao_bovinos[$j]['imagem']) : ''}}" alt="">
                            </div>
                            <div class="preco-promocao">
                               {{isset($promocao_bovinos[$j]['preco']) ? $promocao_bovinos[$j]['preco'] : ''}}
@@ -88,7 +88,7 @@
                               <h2>{{isset($promocao_suinos[$j]) ? $promocao_suinos[$j]['nome'] : ''}}</h2> 
                            </div>
                            <div class="imagem-produto-promocao">
-                              <img src="{{$promocao_suinos[$j]['imagem'] ?? ''}}" alt="">
+                              <img src="{{isset($promocao_suinos[$j]) ? url($promocao_suinos[$j]['imagem']) : ''}}" alt="">
                            </div>
                            <div class="preco-promocao">
                               {{isset($promocao_suinos[$j]['preco']) ? $promocao_suinos[$j]['preco'] : ''}}
@@ -125,7 +125,7 @@
                               <h2>{{isset($promocao_aves[$j]) ? $promocao_aves[$j]['nome'] : ''}}</h2> 
                            </div>
                            <div class="imagem-produto-promocao">
-                              <img src="{{$promocao_aves[$j]['imagem'] ?? ''}}" alt="">
+                              <img src="{{isset($promocao_aves[$j]) ? url($promocao_aves[$j]['imagem']) : ''}}" alt="">
                            </div>
                            <div class="preco-promocao">
                               {{isset($promocao_aves[$j]['preco']) ? $promocao_aves[$j]['preco'] : ''}}

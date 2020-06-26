@@ -16,4 +16,20 @@ class Promocao extends Model
      public function unidade(){
         return $this->belongsTo('App\Models\Unidade');
      }
+
+     public function getFormatedStatusAttribute()
+    {
+        $status = $this->attributes['status'];
+
+        switch ($status) {
+            case "0":
+                $status = "Inativo";
+                break;
+
+            case "1":
+                $status = "Ativo";
+                break;
+        }
+        return $status;
+    }
 }

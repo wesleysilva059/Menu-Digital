@@ -7,21 +7,22 @@
          <h2>Cadastro de Promoções</h2>
       </div>
 
-      <form action="{{route('backend.promocoes.store')}}" method="post" enctype="multipart/form-data">	  
-      {{ csrf_field() }}
+      <form action="{{route('backend.promocoes.update',$promocao->id)}}" method="post" enctype="multipart/form-data">	  
+         {{ method_field('put')}}   
+         {{ csrf_field() }}
       <!-- area de campos do form -->	  
       <hr />	  
          <div class="row">	    
             <div class="form-group col-md-8">	      
                <label for="nome">Nome do Promoção</label>	      
-               <input type="text" class="form-control" name="nome">
+               <input type="text" class="form-control" name="nome" value="{{$promocao->nome}}">
             </div>
          </div>	  	  
          <div class="row">       
             <div class="form-group col-md-4">         
                <label for="grupo">Grupo</label>
                <select class="form-control" name="grupo_id">
-                  <option>Escolha...</option>
+                  <option value="{{$promocao->grupo_id}}">{{$promocao->grupo->descricao}}</option>
                   @foreach ($grupos as $g)
                   <option value="{{$g->id}}">{{$g->descricao}}</option>    
                   @endforeach
@@ -29,14 +30,14 @@
             </div>              
             <div class="form-group col-md-4">         
                 <label for="preco">Valor</label>          
-                <input type="text" class="form-control" name="preco">
+                <input type="text" class="form-control" name="preco" value="{{$promocao->preco}}">
             </div>              
          </div>
          <div class="row">
             <div class="form-group col-md-4">         
                <label for="unidade">Unidade</label>
                <select class="form-control" name="unidade_id">
-                  <option>Escolha...</option>
+                  <option value="{{$promocao->unidade_id}}">{{$promocao->unidade->descricao}}</option>
                   @foreach ($unidades as $u)
                   <option value="{{$u->id}}">{{$u->descricao}}</option>    
                   @endforeach
@@ -45,15 +46,18 @@
             <div class="form-group col-md-4">         
                 <label for="status">Status</label>         
                 <select class="form-control" name="status">
-                    <option>Escolha...</option>
-                    <option value="1">Ativo</option>
-                    <option value="0">Inativo</option>
+                     <option value="{{$promocao->status}}">{{$promocao->formatedstatus}}</option>
+                     <option value="1">Ativo</option>
+                     <option value="0">Inativo</option>
                 </select>
             </div>               
          </div>
          <div class="form-group col-md-5">
             <label for="exampleFormControlFile1">Adicionar Imagem de Exibição</label>
             <input type="file" class="filestyle" value="{{old('imagem')}}" name="imagem" data-buttonName="btn-primary" required="">
+            <figure>
+               <img  style="width: 300px" src="{{url($promocao->imagem)}}">
+            </figure>
         </div>
          <hr>
          <div id="actions" class="row">	    

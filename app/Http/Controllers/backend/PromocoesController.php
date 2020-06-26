@@ -36,7 +36,7 @@ class PromocoesController extends Controller
             $row[] = $p->unidade->descricao;
             $row[] = $p->imagem;
             $row[] = '<div class="btn-group">
-                        <a onclick="editFormPromocao('.$p->id.')" class="btn btn-primary btn-sm">
+                        <a href="'.route("backend.promocoes.edit", $p->id).'" class="btn btn-primary btn-sm">
                             <i class="fa fa-pencil"></i>
                         </a>
                         <a onclick="deleteDataPromocao('.$p->id.')" class="btn btn-danger btn-sm">
@@ -130,8 +130,11 @@ class PromocoesController extends Controller
     public function edit($id)
     {
         $promocao = Promocao::find($id);
+        $grupos = Grupo::all();
+        $unidades = Unidade::all();
+        //dd($promocao);
 
-        return view('backend.promocoes.edit');
+        return view('backend.promocoes.edit', compact('promocao','grupos','unidades'));
     }
 
     /**
@@ -157,7 +160,7 @@ class PromocoesController extends Controller
             $nome = uniqid(date('HisYmd'));
             $extensao = $request->imagem->extension();
             $nomeArquivo = "{$nome}.{$extensao}";
-            $upload = $request->imagem->storeAs('promocao/imagem/'.$promocao->id, $nomeArquivo);
+            $upload = $request->imagem->storeAs('promocoes/imagem/'.$promocao->id, $nomeArquivo);
             if(!$upload)
             {
                 return redirect()
@@ -165,7 +168,7 @@ class PromocoesController extends Controller
                 ->with('error', 'Falha ao carregar Imagem.')
                 ->withInput();
             } else {
-                $promocao->imagem = url('/storage/promocoes/imagem').'/'.$promocao->id.'/'.$nomeArquivo;
+                $promocao->imagem = '/storage/promocoes/imagem'.'/'.$promocao->id.'/'.$nomeArquivo;
                 $promocao->save();
             }
         }

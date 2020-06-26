@@ -77,6 +77,18 @@ Route::group(['prefix' => '/backend'], function () {
         'as'    => 'backend.promocoes.store',
         'uses'  => 'Backend\PromocoesController@store'
     ]);
+    Route::get('/promocoes/edit/{id}', [
+        'as'    => 'backend.promocoes.edit',
+        'uses'  => 'Backend\PromocoesController@edit'
+    ]);
+    Route::put('/promocoes/update/{id}', [
+        'as'    => 'backend.promocoes.update',
+        'uses'  => 'Backend\PromocoesController@update'
+    ]);
+    Route::delete('/promocoes/delete/{id}', [
+        'as'    => 'backend.promocoes.delete',
+        'uses'  => 'Backend\PromocoesController@delete'
+    ]);
 
 
     Route::get('/usuarios', [
