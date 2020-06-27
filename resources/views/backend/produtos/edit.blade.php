@@ -8,20 +8,21 @@
       </div>
 
       <form action="{{route('backend.produtos.store')}}" method="post">	  
-      {{ csrf_field() }}
+         {{ method_field('put')}}   
+         {{ csrf_field() }}
       <!-- area de campos do form -->	  
       <hr />	  
          <div class="row">	    
             <div class="form-group col-md-8">	      
                <label for="nome">Nome do Produto</label>	      
-               <input type="text" class="form-control" name="nome">
+               <input type="text" class="form-control" name="nome" value="{{$produto->nome}}">
             </div>
          </div>	  	  
          <div class="row">       
             <div class="form-group col-md-4">         
                <label for="grupo">Grupo</label>
                <select class="form-control" name="grupo_id">
-                  <option>Escolha...</option>
+                  <option value="{{$produto->grupo_id}}">{{$produto->grupo->descricao}}</option>
                   @foreach ($grupos as $g)
                   <option value="{{$g->id}}">{{$g->descricao}}</option>    
                   @endforeach
@@ -29,14 +30,14 @@
             </div>              
             <div class="form-group col-md-4">         
                 <label for="preco">Valor</label>          
-                <input type="text" class="form-control" name="valor">
+                <input type="text" class="form-control" name="valor" value="{{$produto->valor}}">
             </div>              
          </div>
          <div class="row">       
             <div class="form-group col-md-8">         
                 <label for="status">Status</label>         
                 <select class="form-control" name="status">
-                    <option>Escolha...</option>
+                    <option value="{{$produto->status}}">{{$produto->formatedstatus}}</option>
                     <option value="1">Ativo</option>
                     <option value="0">Inativo</option>
                 </select>
@@ -57,28 +58,5 @@
 
 @endsection
 @section('scripts')
-<script type="text/javascript">
 
-   var table;
-   
-      $(document).ready(function() {
-    
-       // DataTable
-       //var table = $('#example').DataTable();
-       table = $('#example').DataTable({
-         "language": {
-             "url": "//cdn.datatables.net/plug-ins/1.10.18/i18n/Portuguese-Brasil.json"
-           },
-          "processing" : true,
-          "serverside" : true,
-          'columnDefs': [{
-              'targets': 0,
-              'searchable': false,
-              'orderable': false
-           }],
-           'order': [1, 'asc']
-        }); 
-   
-   } );
-   </script>
 @endsection

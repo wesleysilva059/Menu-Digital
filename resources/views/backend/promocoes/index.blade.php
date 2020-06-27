@@ -19,10 +19,10 @@
                <thead>
                   <tr>
                   <th width="60">Status</th>
-                  <th>Código</th>
                   <th>Nome</th>
-                  <th>Grupo</th>
                   <th>Valor</th>
+                  <th>Grupo</th>
+                  <th>Unidade</th>
                   <th>Imagem</th>
                   <th width="100">Ações</th>
                   </tr>

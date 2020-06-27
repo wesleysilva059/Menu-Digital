@@ -27,14 +27,19 @@ class PromocoesController extends Controller
     {
         $promocoes = Promocao::all();
         $data = array();
+        
         foreach($promocoes as $p){
             $row = array();
-            $row[] = $p->status;
+            $row[] = $p->formatedstatus;
             $row[] = $p->nome;
-            $row[] = $p->preco;
+            $row[] = 'R$ '.$p->preco;
             $row[] = $p->grupo->descricao;
             $row[] = $p->unidade->descricao;
-            $row[] = '<figure><img style="width:50px" src="'.url($p->imagem).'"></figure>';
+            if($p->imagem == ''){
+                $row[] = '';
+            }else{
+                $row[] = '<figure><img style="width:50px" src="'.url($p->imagem).'"></figure>';
+            }
             $row[] = '<div class="btn-group">
                         <a href="'.route("backend.promocoes.edit", $p->id).'" class="btn btn-primary btn-sm">
                             <i class="fa fa-pencil"></i>

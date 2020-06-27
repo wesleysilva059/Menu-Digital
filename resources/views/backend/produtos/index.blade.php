@@ -18,8 +18,8 @@
             <table class="table table-striped" id="example">
                <thead>
                   <tr>
-                  <th width="60">Status</th>
                   <th>Código</th>
+                  <th>Status</th>
                   <th>Nome</th>
                   <th>Grupo</th>
                   <th>Valor</th>
@@ -66,5 +66,22 @@
         }); 
    
    } );
+
+   function deleteDataProdutos(id){
+        if(confirm("Tem certeza de que deseja excluir esse produto?")){
+            var url = '/backend/produtos/delete/'+id;
+            $.ajax({
+            url : url,
+            type : 'DELETE',
+            data : {'_token' : $('meta[name=csrf-token]').attr('content')},
+            success : function(data){
+                $('#example').DataTable().ajax.reload();
+            },
+            error : function(){
+                alert("Não foi possível excluir os dados!");
+            }
+            });
+        }
+    }
    </script>
 @endsection

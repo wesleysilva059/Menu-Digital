@@ -11,4 +11,20 @@ class Produto extends Model{
    public function grupo(){
       return $this->belongsTo('App\Models\Grupo');
    }
+
+   public function getFormatedStatusAttribute()
+    {
+        $status = $this->attributes['status'];
+
+        switch ($status) {
+            case "0":
+                $status = "Inativo";
+                break;
+
+            case "1":
+                $status = "Ativo";
+                break;
+        }
+        return $status;
+    }
 }

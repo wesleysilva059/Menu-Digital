@@ -26,13 +26,15 @@ class ProdutosController extends Controller
         $data = array();
         foreach($produtos as $p){
             $row = array();
-            $row[] = $p->ativo;
             $row[] = $p->id;
+            $row[] = $p->formatedstatus;
             $row[] = $p->nome;
             $row[] = $p->grupo->descricao;
             $row[] = $p->valor;
             $row[] = '<div class="btn-group">
-            <a onclick="editFormprodutos('.$p->id.')" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></a>
+            <a href="'.route("backend.produtos.edit", $p->id).'" class="btn btn-primary btn-sm">
+                            <i class="fa fa-pencil"></i>
+                        </a>
             <a onclick="deleteDataprodutos('.$p->id.')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a></div>';
             $data[] = $row;
         }

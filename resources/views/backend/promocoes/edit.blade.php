@@ -54,7 +54,7 @@
          </div>
          <div class="form-group col-md-5">
             <label for="exampleFormControlFile1">Adicionar Imagem de Exibição</label>
-            <input type="file" class="filestyle" value="{{old('imagem')}}" name="imagem" data-buttonName="btn-primary" required="">
+            <input type="file" class="filestyle" value="{{old('imagem')}}" name="imagem" data-buttonName="btn-primary">
             <figure>
                <img  style="width: 300px" src="{{url($promocao->imagem)}}">
             </figure>
@@ -74,28 +74,5 @@
 
 @endsection
 @section('scripts')
-<script type="text/javascript">
 
-   var table;
-   
-      $(document).ready(function() {
-    
-       // DataTable
-       //var table = $('#example').DataTable();
-       table = $('#example').DataTable({
-         "language": {
-             "url": "//cdn.datatables.net/plug-ins/1.10.18/i18n/Portuguese-Brasil.json"
-           },
-          "processing" : true,
-          "serverside" : true,
-          'columnDefs': [{
-              'targets': 0,
-              'searchable': false,
-              'orderable': false
-           }],
-           'order': [1, 'asc']
-        }); 
-   
-   } );
-   </script>
 @endsection
