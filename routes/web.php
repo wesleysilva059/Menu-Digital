@@ -179,8 +179,8 @@ Route::group(['prefix' => '/backend'], function () {
         'as'    => 'backend.configuracoes',
         'uses'  => 'Backend\ConfiguracoesController@index'
     ]);
-    Route::post('/configuracoes/store', [
-        'as'    => 'backend.configuracoes.store',
-        'uses'  => 'Backend\ConfiguracoesController@store'
+    Route::put('/configuracoes/update/{id}', [
+        'as'    => 'backend.configuracoes.update',
+        'uses'  => 'Backend\ConfiguracoesController@update'
     ]);
 });
