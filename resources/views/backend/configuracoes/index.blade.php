@@ -20,7 +20,7 @@
 
       <form action="{{route('backend.configuracoes.update', $configuracao->id)}}" method="POST">
          @csrf
-         @method('patch')
+         @method('put')
 
        <div class="tab-content">
          <div id="home" class="tab-pane fade in active">
@@ -47,7 +47,7 @@
                      </div>
                      <div class="col-md-4">
                         <select class="form-control" data-width="60%" name="direcao_ordena" >
-                            <option value="{{$configuracao->direcao_ordena">{{$configuracao->formateddirecaoordena}}</option>
+                            <option value="{{$configuracao->direcao_ordena}}">{{$configuracao->formateddirecaoordena}}</option>
                           <option value="asc" >Crescente</option>
                           <option value="desc" >Decrescente</option>
                         </select>
