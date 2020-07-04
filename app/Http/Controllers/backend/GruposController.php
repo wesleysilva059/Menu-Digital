@@ -27,8 +27,10 @@ class GruposController extends Controller
             $row[] = $p->id;
             $row[] = $p->descricao;
             $row[] = '<div class="btn-group">
-            <a onclick="editFormprodutos('.$p->id.')" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></a>
-            <a onclick="deleteDataprodutos('.$p->id.')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a></div>';
+            <a href="'.route("backend.grupos.edit", $p->id).'" class="btn btn-primary btn-sm">
+                            <i class="fa fa-pencil"></i>
+                        </a>
+            <a onclick="deleteDatagrupos('.$p->id.')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a></div>';
             $data[] = $row;
         }
         $output = array("data" => $data);
@@ -54,9 +56,9 @@ class GruposController extends Controller
      */
     public function store(Request $request)
     {
-        $produto = new Grupo();
-        $produto->descricao = $request['descricao'];
-        $produto->save();
+        $grupo = new Grupo();
+        $grupo->descricao = $request['descricao'];
+        $grupo->save();
 
         return redirect()->route('backend.grupos')->with('success', 'Grupo cadastrado com Sucesso!');
     }
@@ -80,7 +82,7 @@ class GruposController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('backend.grupos.edit');
     }
 
     /**
@@ -92,7 +94,11 @@ class GruposController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $grupo = Grupo::find($id);
+        $grupo->descricao = $request['descricao'];
+        $grupo->save();
+
+        return redirect()->route('backend.grupos')->with('success', 'Grupo cadastrado com Sucesso!');
     }
 
     /**
@@ -101,8 +107,9 @@ class GruposController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+        $grupo = Grupo::find($id);
+        $grupo->delete();
     }
 }

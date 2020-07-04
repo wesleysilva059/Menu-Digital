@@ -62,7 +62,7 @@ class UnidadesController extends Controller
                         ->with('success', 'Unidade Gravada com sucesso.');
         } else {
             return redirect()->back()->withInput(Input::all())
-                ->with('error','Já existe um diário cadastrado com este dia.');
+                ->with('error','Erro ao cadastrar Unidade.');
         }
     }
 
@@ -85,7 +85,7 @@ class UnidadesController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('backend.unidades.edit');
     }
 
     /**
@@ -97,7 +97,9 @@ class UnidadesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $unidade = Unidade::find($id);
+        $unidade->descricao = $request['descricao'];
+        $unidade->save();
     }
 
     /**
@@ -106,8 +108,9 @@ class UnidadesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+        $unidade = Unidade::find($id);
+        $unidade->delete();
     }
 }
