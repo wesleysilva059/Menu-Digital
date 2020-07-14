@@ -92,7 +92,8 @@ class ProdutosController extends Controller
     public function edit($id)
     {
         $grupos = Grupo::all();
-        return view('backend.produtos.edit', compact('grupos'));
+        $produto = Produto::find($id);
+        return view('backend.produtos.edit', compact('grupos','produto'));
     }
 
     /**
