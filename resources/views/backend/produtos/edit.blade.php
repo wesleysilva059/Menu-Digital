@@ -7,7 +7,7 @@
          <h2>Cadastro de Produtos</h2>
       </div>
 
-      <form action="{{route('backend.produtos.store')}}" method="post">	  
+      <form action="{{route('backend.produtos.update', $produto->id)}}" method="post">	  
          {{ method_field('put')}}   
          {{ csrf_field() }}
       <!-- area de campos do form -->	  

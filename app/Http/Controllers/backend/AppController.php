@@ -2,12 +2,20 @@
 
 namespace App\Http\Controllers\backend;
 
-use App\Http\Controllers\Controller;
+use App\Models\Grupo;
+use App\Models\Produto;
+use App\Models\Promocao;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class AppController extends Controller
 {
     public function index(){
-        return view('backend.index');
+
+        $contProdutos = Produto::all()->count();
+        $contPromocoes = Promocao::all()->count();
+        $contGrupos = Grupo::all()->count();
+
+        return view('backend.index', compact('contProdutos', 'contPromocoes', 'contGrupos'));
     }
 }
