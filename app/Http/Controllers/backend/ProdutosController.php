@@ -30,12 +30,12 @@ class ProdutosController extends Controller
             $row[] = $p->formatedstatus;
             $row[] = $p->nome;
             $row[] = $p->grupo->descricao;
-            $row[] = $p->valor;
+            $row[] = currencyToApp($p->valor);
             $row[] = '<div class="btn-group">
             <a href="'.route("backend.produtos.edit", $p->id).'" class="btn btn-primary btn-sm">
                             <i class="fa fa-pencil"></i>
                         </a>
-            <a onclick="deleteDataprodutos('.$p->id.')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a></div>';
+            <a onclick="deleteDataProdutos('.$p->id.')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a></div>';
             $data[] = $row;
         }
         $output = array("data" => $data);
@@ -65,7 +65,7 @@ class ProdutosController extends Controller
         $produto = new Produto;
         $produto->nome = $request['nome'];
         $produto->grupo_id = $request['grupo_id'];
-        $produto->valor = $request['valor'];
+        $produto->valor = currencyToBd($request['valor']);
         $produto->status = $request['status'];
         $produto->save();
 
@@ -109,7 +109,7 @@ class ProdutosController extends Controller
 
         $produto->nome = $request['nome'];
         $produto->grupo_id = $request['grupo_id'];
-        $produto->valor = $request['valor'];
+        $produto->valor = currencyToBd($request['valor']);
         $produto->status = $request['status'];
         $produto->save();
 

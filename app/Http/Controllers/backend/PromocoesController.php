@@ -27,7 +27,7 @@ class PromocoesController extends Controller
     {
         $promocoes = Promocao::all();
         $data = array();
-        
+
         foreach($promocoes as $p){
             $row = array();
             $row[] = $p->formatedstatus;
@@ -83,7 +83,7 @@ class PromocoesController extends Controller
         $promocao = new Promocao;
         $promocao->nome = $request['nome'];
         $promocao->grupo_id = $request['grupo_id'];
-        $promocao->preco = $request['preco'];
+        $promocao->preco = currencyToBd($request['valor']);
         $promocao->status = $request['status'];
         $promocao->unidade_id = $request['unidade_id'];
         $promocao->save();
@@ -155,7 +155,7 @@ class PromocoesController extends Controller
 
         $promocao->nome = $request['nome'];
         $promocao->grupo_id = $request['grupo_id'];
-        $promocao->preco = $request['preco'];
+        $promocao->preco = currencyToBd($request['valor']);
         $promocao->status = $request['status'];
         $promocao->unidade_id = $request['unidade_id'];
         $promocao->save();

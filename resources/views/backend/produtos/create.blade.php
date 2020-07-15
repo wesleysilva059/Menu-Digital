@@ -7,51 +7,51 @@
          <h2>Cadastro de Produtos</h2>
       </div>
 
-      <form action="{{route('backend.produtos.store')}}" method="post">	  
+      <form action="{{route('backend.produtos.store')}}" method="post">
       {{ csrf_field() }}
-      <!-- area de campos do form -->	  
-      <hr />	  
-         <div class="row">	    
-            <div class="form-group col-md-8">	      
-               <label for="nome">Nome do Produto</label>	      
-               <input type="text" class="form-control" name="nome">
+      <!-- area de campos do form -->
+      <hr />
+         <div class="row">
+            <div class="form-group col-md-8">
+               <label for="nome">Nome do Produto</label>
+               <input type="text" class="form-control" name="nome" required>
             </div>
-         </div>	  	  
-         <div class="row">       
-            <div class="form-group col-md-4">         
-               <label for="grupo">Grupo</label>
-               <select class="form-control" name="grupo_id">
-                  <option>Escolha...</option>
-                  @foreach ($grupos as $g)
-                  <option value="{{$g->id}}">{{$g->descricao}}</option>    
-                  @endforeach
-               </select>         
-            </div>              
-            <div class="form-group col-md-4">         
-                <label for="preco">Valor</label>          
-                <input type="text" class="form-control" name="valor">
-            </div>              
          </div>
-         <div class="row">       
-            <div class="form-group col-md-8">         
-                <label for="status">Status</label>         
-                <select class="form-control" name="status">
-                    <option>Escolha...</option>
+         <div class="row">
+            <div class="form-group col-md-4">
+               <label for="grupo">Grupo</label>
+               <select class="form-control" name="grupo_id" required>
+                  <option value="">Escolha...</option>
+                  @foreach ($grupos as $g)
+                  <option value="{{$g->id}}">{{$g->descricao}}</option>
+                  @endforeach
+               </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="preco">Valor</label>
+                <input type="text" class="form-control preco" name="valor" required>
+            </div>
+         </div>
+         <div class="row">
+            <div class="form-group col-md-8">
+                <label for="status">Status</label>
+                <select class="form-control" name="status" required>
+                    <option value="">Escolha...</option>
                     <option value="1">Ativo</option>
                     <option value="0">Inativo</option>
                 </select>
-            </div>               
+            </div>
          </div>
          <hr>
-         <div id="actions" class="row">	    
-            <div class="col-md-12">	      		
-               <button type="submit" class="btn btn-primary">Salvar</button>	      
-               <a href="index.php" class="btn btn-default">Cancelar</a>	    
-            </div>	  
-         </div>	
+         <div id="actions" class="row">
+            <div class="col-md-12">
+               <button type="submit" class="btn btn-primary">Salvar</button>
+               <a href="{{route('backend.produtos')}}" class="btn btn-default">Cancelar</a>
+            </div>
+         </div>
       </form>
 
-      <div class="clearfix"> </div>     
+      <div class="clearfix"> </div>
   </div>
 </div>
 
@@ -60,25 +60,11 @@
 <script type="text/javascript">
 
    var table;
-   
-      $(document).ready(function() {
-    
-       // DataTable
-       //var table = $('#example').DataTable();
-       table = $('#example').DataTable({
-         "language": {
-             "url": "//cdn.datatables.net/plug-ins/1.10.18/i18n/Portuguese-Brasil.json"
-           },
-          "processing" : true,
-          "serverside" : true,
-          'columnDefs': [{
-              'targets': 0,
-              'searchable': false,
-              'orderable': false
-           }],
-           'order': [1, 'asc']
-        }); 
-   
-   } );
+
+        $(document).ready(function() {
+
+            $('.preco').mask("###.##0,00", {reverse: true});
+
+        } );
    </script>
 @endsection

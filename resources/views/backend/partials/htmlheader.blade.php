@@ -26,7 +26,7 @@
    <!--static chart-->
    <script src="/js/Chart.min.js"></script>
    <!--//charts-->
-
+    <script src="/js/jquery.mask.min.js"></script>
 
    <!--skycons-icons-->
    <script src="/js/skycons.js"></script>

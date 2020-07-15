@@ -53,7 +53,7 @@
                               <img src="{{isset($promocao_bovinos[$j]) ? url($promocao_bovinos[$j]['imagem']) : ''}}" alt="">
                            </div>
                            <div class="preco-promocao">
-                              {{isset($promocao_bovinos[$j]['preco']) ? $promocao_bovinos[$j]['preco'] : ''}}
+                              {{isset($promocao_bovinos[$j]['preco']) ? currencyToApp($promocao_bovinos[$j]['preco']) : ''}}
                            </div>
                            <div class="unidade">{{isset($promocao_bovinos[$j]['unid']) ? $promocao_bovinos[$j]['unid'] : ''}}</div>
                         </div>
@@ -66,7 +66,7 @@
                      @foreach($bovinos[$j] as $b)
                         <div class="list-produtos">
                            <div class="col-md-9 produto">{{$b->nome}}</div>
-                           <div class="col-md-3 preco">R$ {{$b->valor}}</div>
+                           <div class="col-md-3 preco">R$ {{currencyToApp($b->valor)}}</div>
                         </div>
                      @endforeach
                   </div>
@@ -91,7 +91,7 @@
                               <img src="{{isset($promocao_suinos[$j]) ? url($promocao_suinos[$j]['imagem']) : ''}}" alt="">
                            </div>
                            <div class="preco-promocao">
-                              {{isset($promocao_suinos[$j]['preco']) ? $promocao_suinos[$j]['preco'] : ''}}
+                              {{isset($promocao_suinos[$j]['preco']) ? currencyToApp($promocao_suinos[$j]['preco']) : ''}}
                            </div>
                            <div class="unidade">{{isset($promocao_suinos[$j]['unid']) ? $promocao_suinos[$j]['unid'] : ''}}</div>
                         </div>
@@ -104,7 +104,7 @@
                      @foreach($suinos[$j] as $b)
                         <div class="list-produtos">
                            <div class="col-md-9 produto">{{$b->nome}}</div>
-                           <div class="col-md-3 preco">R$ {{$b->valor}}</div>
+                           <div class="col-md-3 preco">R$ {{currencyToApp($b->valor)}}</div>
                         </div>
                      @endforeach
                   </div>
@@ -128,7 +128,7 @@
                               <img src="{{isset($promocao_aves[$j]) ? url($promocao_aves[$j]['imagem']) : ''}}" alt="">
                            </div>
                            <div class="preco-promocao">
-                              {{isset($promocao_aves[$j]['preco']) ? $promocao_aves[$j]['preco'] : ''}}
+                              {{isset($promocao_aves[$j]['preco']) ? currencyToApp($promocao_aves[$j]['preco']) : ''}}
                            </div>
                            <div class="unidade">{{isset($promocao_aves[$j]['unid']) ? $promocao_aves[$j]['unid'] : ''}}</div>
                         </div>
@@ -141,7 +141,7 @@
                      @foreach($aves[$j] as $b)
                         <div class="list-produtos">
                            <div class="col-md-9 produto">{{$b->nome}}</div>
-                           <div class="col-md-3 preco">R$ {{$b->valor}}</div>
+                           <div class="col-md-3 preco">R$ {{currencyToApp($b->valor)}}</div>
                         </div>
                      @endforeach
                   </div>
