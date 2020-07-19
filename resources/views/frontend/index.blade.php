@@ -66,7 +66,7 @@
                      @foreach($bovinos[$j] as $b)
                         <div class="list-produtos">
                            <div class="col-md-9 produto">{{$b->nome}}</div>
-                           <div class="col-md-3 preco">R$ {{currencyToApp($b->valor)}}</div>
+                           <div class="col-md-3 preco">{{currencyToApp($b->valor)}}</div>
                         </div>
                      @endforeach
                   </div>
@@ -104,7 +104,7 @@
                      @foreach($suinos[$j] as $b)
                         <div class="list-produtos">
                            <div class="col-md-9 produto">{{$b->nome}}</div>
-                           <div class="col-md-3 preco">R$ {{currencyToApp($b->valor)}}</div>
+                           <div class="col-md-3 preco">{{currencyToApp($b->valor)}}</div>
                         </div>
                      @endforeach
                   </div>
@@ -141,7 +141,7 @@
                      @foreach($aves[$j] as $b)
                         <div class="list-produtos">
                            <div class="col-md-9 produto">{{$b->nome}}</div>
-                           <div class="col-md-3 preco">R$ {{currencyToApp($b->valor)}}</div>
+                           <div class="col-md-3 preco">{{currencyToApp($b->valor)}}</div>
                         </div>
                      @endforeach
                   </div>
