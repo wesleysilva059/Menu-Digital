@@ -93,7 +93,7 @@ class PromocoesController extends Controller
             $nome = uniqid(date('HisYmd'));
             $extensao = $request->imagem->extension();
             $nomeArquivo = "{$nome}.{$extensao}";
-            $upload = $request->imagem->storeAs('promocao/imagem/'.$promocao->id, $nomeArquivo);
+            $upload = $request->imagem->storeAs('promocoes/imagem/'.$promocao->id, $nomeArquivo);
             if(!$upload)
             {
                 return redirect()
